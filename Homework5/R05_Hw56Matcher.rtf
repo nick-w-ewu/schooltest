@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red127\green0\blue85;\red106\green62\blue62;
+\red63\green127\blue95;\red127\green159\blue191;\red42\green0\blue255;\red0\green0\blue192;}
+\margl1440\margr1440\vieww19700\viewh11160\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs40 \cf0 Idea of Converting from string "(3.45 + 6.0)" to "(A + B)"
+\fs26 \cf2 \
+\pard\pardeftab720\sa40
+\cf2 Two ways to do that:\
+1)\
+Try to use the Java Regex, here is a demo code directly related to our project:\
+-------------------------------------------------------------------\
+\pard\pardeftab720
+
+\f1\fs22 \cf3 import\cf0  java.util.regex.Matcher;\
+\cf3 import\cf0  java.util.regex.Pattern;\
+\
+\
+\cf3 public\cf0  \cf3 class\cf0  MatcherDemo2 \{\
+\
+	\cf3 public\cf0  \cf3 static\cf0  \cf3 void\cf0  main(String[] \cf4 args\cf0 ) \{\
+		\cf5 // \cf6 TODO\cf5  Auto-generated method stub\cf0 \
+\
+		String \cf4 text\cf0  = \cf7 "(45. + (34.67 + 4567)) / 0.88 + ( 99 * .8970)"\cf0 ;\
+		System.\cf8 out\cf0 .println(\cf4 text\cf0 .length());\
+\
+		String \cf4 patternString\cf0  = \cf7 "(\\\\d+)(\\\\.\\\\d*)?"\cf0 ; \cf5 //find all string format of double numbers in target string, learn why use this?\cf0 \
+\
+		Pattern \cf4 pattern\cf0  = Pattern.compile(\cf4 patternString\cf0 );\
+		Matcher \cf4 matcher\cf0  = \cf4 pattern\cf0 .matcher(\cf4 text\cf0 );\
+\
+		\cf3 int\cf0  \cf4 count\cf0  = 0;\
+		\cf3 while\cf0 (\cf4 matcher\cf0 .find()) \{\
+		    \cf4 count\cf0 ++;\
+		    \cf5 //BECARE the end index is not inclusive\cf0 \
+		    System.\cf8 out\cf0 .println( \cf7 ""\cf0  + \cf4 count\cf0  +  \cf7 ":found a double num between index: "\cf0  + \cf7 " : "\cf0 \
+		            + \cf4 matcher\cf0 .start() + \cf7 " - "\cf0  + \cf4 matcher\cf0 .end());\
+		  \
+		\}\
+		System.\cf8 out\cf0 .println(\cf7 "\\nNOTE THAT: the end index is not inclusive!"\cf0 );\
+	\}\
+	\
+\}\
+------------------------------------------------------------------------
+\f0\fs26 \cf2 \'a0\
+\pard\pardeftab720\sa40
+\cf2 2) If you have trouble understanding a java regex, you can employ the idea we used in Homework 2, where we like to extract(tokenize) words out of a piece of raw text file. That algorithm can be adapted to this project also.\
+\'a0\
+Let me know questions,\
+\'a0\
+Tony}
