@@ -227,7 +227,7 @@ class Calculator2 extends JFrame implements ActionListener
 		Matcher matcher = pattern.matcher(text);
 		String infix = "";
 		int end;
-		if(!Character.isDigit(text.charAt(0)))
+		if(!Character.isDigit(text.charAt(0)) && text.charAt(0) != '.')
 		{
 			infix += text.charAt(0);
 			end = 1;
