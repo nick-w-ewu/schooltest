@@ -44,7 +44,7 @@ class Calculator2 extends JFrame implements ActionListener
 	
 	public Calculator2()
 	{
-		JFrame frame = new JFrame("Simple Java Caculator2");
+		JFrame frame = new JFrame("Simple Java Caculator");
 		frame.setSize(320,420);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
